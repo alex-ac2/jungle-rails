@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
+  resource :user, only: [:create, :new]
+
   resources :orders, only: [:create, :show]
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   namespace :admin do
     root to: 'dashboard#show'
