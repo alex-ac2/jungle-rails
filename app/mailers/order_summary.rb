@@ -1,0 +1,2 @@
+class OrderSummary < ApplicationMailer
+end
