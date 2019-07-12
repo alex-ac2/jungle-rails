@@ -1,0 +1,18 @@
+<tr>
+     <td>
+        <h5><%= index + 1 %></h5>
+    </td>
+    <td>
+        <img src="<%= item.product.image.tiny %>"/>
+    </td>
+    <td>
+        <h4><%= item.product.name %></h4>
+        <p><%= item.product.description %></p>
+    </td>
+    <td>
+        <h4><%= item.quantity %><h4>
+    </td>
+    <td>
+        <h4><%= number_to_currency((item.total_price_cents) * 0.01)  %><h4>
+    </td>
+</tr>
