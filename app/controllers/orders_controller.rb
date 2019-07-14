@@ -54,6 +54,8 @@ class OrdersController < ApplicationController
       )
     end
     order.save!
+    @email = 'test@example.com'
+    OrderSummary.order_receipt(order).deliver
     order
   end
 

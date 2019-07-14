@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order Confirmation and Summary, <% @order.email %></h1>
+
+    <p>Thank you for your order. Please review your confirmation</p>
+
+    <h4>Order Summary:</h4>
+    <div>
+      <% @order.line_items.each_with_index do |item, index| %>
+        <%= render 'item', item: item, index: index %>
+      <% end %>
+    </div>
+    <hr>
+    <p>HST:   <%= number_to_currency((@order.total_cents * 0.01) * 0.13) %></p>
+    <p>Total:   <%= number_to_currency((@order.total_cents * 1.13) * 0.01) %><p>
+
+  </body>
+</html>
