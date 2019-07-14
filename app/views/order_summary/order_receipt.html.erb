@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order Confirmation and Summary, [Person's Email]</h1>
+
+    <h4></h4>
+
+
+
+
+    <hr>
+    <p>HST:   <%= number_to_currency(@order.total_cents * 0.01) * 0.13 %></p>
+    <p>Total:   <%= number_to_currency((@order.total_cents * 1.13) * 0.01) %><p>
+
+    
+  </body>
+</html>

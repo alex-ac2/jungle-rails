@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/preview' => 'order_summary_preview#welcome'
 
   namespace :admin do
     root to: 'dashboard#show'
