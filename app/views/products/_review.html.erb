@@ -1,7 +1,7 @@
 <p>Rating: <%= item.rating %>/5 </p>
 <p><b>By: <%= item.user.first_name %></b></p>
 <p><%= item.description %></p>
-<%if current_user.id == item.user.id%>
+<%if current_user != nil && current_user.id == item.user.id%>
   <%= link_to "Delete", product_review_url(@review, product_id: item.product.id, id: item.id), 
   method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
 <%end%>
