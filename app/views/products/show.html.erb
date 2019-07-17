@@ -23,6 +23,19 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <% if current_user %>
+          <%= render 'review_form' %>
+        <%end%>
+        <br>
+        <br>
+        <dl class="dl-horizontal">
+        <dt>Customer Reviews:</dt>
+        <dd> 
+          <% @product.reviews.each do |item| %>
+            <%= render 'review', item: item %>
+          <% end %>
+        </dd>
+        </dl>
       </div>
     </div>
 

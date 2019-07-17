@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create, :destroy]
+  end
+
   resources :categories, only: [:show]
 
   resource :cart, only: [:show] do
@@ -21,6 +24,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/preview' => 'order_summary_preview#welcome'
+
+  # Post new review
+  #post '/review' => 'reviews#create'
 
   namespace :admin do
     root to: 'dashboard#show'

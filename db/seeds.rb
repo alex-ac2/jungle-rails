@@ -133,4 +133,54 @@ cat3.products.create!({
 })
 
 
+User.create({
+    first_name: "Jack",
+    last_name: "Andrews",
+    email: "jack@gmail.com",
+    password: "dog",
+    password_confirmation: "dog"
+})
+
+User.create({
+    first_name: "Herb",
+    last_name: "Jones",
+    email: "herb@gmail.com",
+    password: "dog",
+    password_confirmation: "dog"
+})
+
+(1..10).each do |n|
+  User.create({
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: "dog",
+    password_confirmation: "dog"
+  })
+end
+
+Review.create({
+  product_id: 3,
+  user_id: 2,
+  description: "This hat fits my head",
+  rating: 3
+})
+
+Review.create({
+  product_id: 3,
+  user_id: 1,
+  description: "This hat shrunk in the wash",
+  rating: 1
+})
+
+(1..10).each do |n|
+  Review.create({
+    product_id: rand(1..12),
+    user_id: rand(1..10),
+    description: Faker::Hipster.paragraph(2),
+    rating:rand(1..5)
+  })
+end
+
+
 puts "DONE!"
